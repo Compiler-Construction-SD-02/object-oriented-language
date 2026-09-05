@@ -1,0 +1,31 @@
+class Base is
+    method Sound : Integer is
+        return Integer(0)
+    end
+end
+
+class Derived1 extends Base is
+    method Sound : Integer is
+        return Integer(1)
+    end
+end
+
+class Derived2 extends Base is
+    method Sound : Integer is
+        return Integer(2)
+    end
+end
+
+class Main is
+    this() is
+        var arr : ArrayBase(Integer(2))
+        arr.set(Integer(0), Derived1())
+        arr.set(Integer(1), Derived2())
+
+        var i : Integer(0)
+        while i.Less(arr.Length()) loop
+            arr.get(i).Sound().Print()
+            i := i.Plus(Integer(1))
+        end
+    end
+end

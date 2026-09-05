@@ -1,0 +1,19 @@
+class Base is
+    method Speak : Integer is
+        return Integer(1)
+    end
+end
+
+class Derived extends Base is
+    method Speak : Integer is
+        return Integer(2)
+    end
+end
+
+class Main is
+    this() is
+        var a : Base()
+        a := Derived()
+        a.Speak().Print()
+    end
+end

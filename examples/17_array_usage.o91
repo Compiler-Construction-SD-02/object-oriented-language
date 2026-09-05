@@ -1,0 +1,14 @@
+class Main is
+    this() is
+        var a : ArrayInteger(Integer(5))
+        a.set(Integer(0), Integer(10))
+        a.set(Integer(1), Integer(20))
+        a.set(Integer(2), Integer(30))
+        a.set(Integer(3), Integer(40))
+        a.set(Integer(4), Integer(50))
+
+        a.get(Integer(0)).Print()
+        a.get(Integer(4)).Print()
+        a.Length().Print()
+    end
+end

@@ -1,0 +1,21 @@
+class A is
+    method Value : Integer is
+        return Integer(10)
+    end
+end
+
+class B extends A is
+end
+
+class C extends B is
+    method DoubleValue : Integer is
+        return Value().Mult(Integer(2))
+    end
+end
+
+class Main is
+    this() is
+        var c : C()
+        c.DoubleValue().Print()
+    end
+end
