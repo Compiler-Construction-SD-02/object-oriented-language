@@ -1,0 +1,30 @@
+class Main is
+    this() is
+        var a : ArrayInt(5)
+        a.set(0, Integer(5))
+        a.set(1, Integer(3))
+        a.set(2, Integer(8))
+        a.set(3, Integer(1))
+        a.set(4, Integer(9))
+
+        var i : Integer(0)
+        while i.Less(a.Length()) loop
+            var j : Integer(0)
+            while j.Less(a.Length().Minus(i).Minus(Integer(1))) loop
+                if a.get(j).Greater(a.get(j.Plus(Integer(1)))) then
+                    var temp : a.get(j)
+                    a.set(j, a.get(j.Plus(Integer(1))))
+                    a.set(j.Plus(Integer(1)), temp)
+                end
+                j := j.Plus(Integer(1))
+            end
+            i := i.Plus(Integer(1))
+        end
+
+        var k : Integer(0)
+        while k.Less(a.Length()) loop
+            a.get(k).Print()
+            k := k.Plus(Integer(1))
+        end
+    end
+end

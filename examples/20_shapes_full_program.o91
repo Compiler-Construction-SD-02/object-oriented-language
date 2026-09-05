@@ -1,0 +1,48 @@
+class Shape is
+    method Area : Integer is
+        return Integer(0)
+    end
+end
+
+class Square extends Shape is
+    var side : Integer(0)
+
+    this(s: Integer) is
+        side := s
+    end
+
+    method Area : Integer is
+        return side.Mult(side)
+    end
+end
+
+class Rectangle extends Shape is
+    var width : Integer(0)
+    var height : Integer(0)
+
+    this(w: Integer, h: Integer) is
+        width := w
+        height := h
+    end
+
+    method Area : Integer is
+        return width.Mult(height)
+    end
+end
+
+class Main is
+    this() is
+        var shapes : ArrayShape(2)
+        shapes.set(0, Square(4))
+        shapes.set(1, Rectangle(3, 5))
+
+        var total : Integer(0)
+        var i : Integer(0)
+        while i.Less(shapes.Length()) loop
+            total := total.Plus(shapes.get(i).Area())
+            i := i.Plus(Integer(1))
+        end
+
+        total.Print()
+    end
+end
