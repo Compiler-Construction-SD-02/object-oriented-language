@@ -1,23 +1,14 @@
 # Compiler for the object-oriented language **O**
 
-A hand-written compiler (lexer → parser → semantic analyzer → JVM bytecode) for **O**, the
-object-oriented language from *Project O* of the Compiler Construction course.
-Implementation language: **Java 21**, build: **Maven**, target platform: **JVM**.
-
-> **Status:** week 1 - language study, list of open questions to the specification, and a test
-> suite that fixes the syntax we are going to accept. No compiler code yet.
-
----
-
 ## Repository layout
 
 ```
 .
-├── README.md                    ← language description + our design decisions (this file)
+├── README.md                    language description + our design decisions (this file)
 ├── docs/
-│   └── testsForFirstWeek.md     ← what every test case checks
-├── examples/                    ← test programs in O (*.o91)
-├── src/main/java/...            ← compiler sources (to be written)
+│   └── testsForFirstWeek.md     what every test case checks
+├── examples/                    test programs in O (*.o91)
+├── src/main/java/...            compiler sources (to be written)
 └── pom.xml
 ```
 
