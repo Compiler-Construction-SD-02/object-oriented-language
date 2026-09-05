@@ -1,4 +1,4 @@
-package innopolis-university-sd-02;
+package com.innopolis.olang-university-sd-02;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.

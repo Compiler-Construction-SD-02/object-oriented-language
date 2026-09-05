@@ -46,7 +46,7 @@ A `Derived extends Base` class that uses an inherited method without overriding 
 `var a : Base(...)`, then `a := Derived(...)`, followed by a method call - the `Derived` version should run. Tests: dynamic dispatch.
 
 **16. Transitive inheritance**
-Three classes in a chain: `A → B → C`, where `C` uses something declared in `A`. Tests: transitivity of inheritance.
+Three classes in a chain: `A -> B -> C`, where `C` uses something declared in `A`. Tests: transitivity of inheritance.
 
 **17. Working with Array**
 Create an `Array[Integer]`, fill it via `set`, read via `get`, use `Length`. Tests: `Array[T]`.

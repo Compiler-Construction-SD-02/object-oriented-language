@@ -32,9 +32,9 @@ end
 
 class Main is
     this() is
-        var shapes : ArrayShape(2)
-        shapes.set(0, Square(4))
-        shapes.set(1, Rectangle(3, 5))
+        var shapes : ArrayShape(Integer(2))
+        shapes.set(Integer(0), Square(Integer(4)))
+        shapes.set(Integer(1), Rectangle(Integer(3), Integer(5)))
 
         var total : Integer(0)
         var i : Integer(0)

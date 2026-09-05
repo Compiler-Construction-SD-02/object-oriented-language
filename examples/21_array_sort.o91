@@ -1,11 +1,11 @@
 class Main is
     this() is
-        var a : ArrayInt(5)
-        a.set(0, Integer(5))
-        a.set(1, Integer(3))
-        a.set(2, Integer(8))
-        a.set(3, Integer(1))
-        a.set(4, Integer(9))
+        var a : ArrayInteger(Integer(5))
+        a.set(Integer(0), Integer(5))
+        a.set(Integer(1), Integer(3))
+        a.set(Integer(2), Integer(8))
+        a.set(Integer(3), Integer(1))
+        a.set(Integer(4), Integer(9))
 
         var i : Integer(0)
         while i.Less(a.Length()) loop

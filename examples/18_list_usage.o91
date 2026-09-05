@@ -1,0 +1,11 @@
+class Main is
+    this() is
+        var l : ListInteger()
+        l := l.append(Integer(1))
+        l := l.append(Integer(2))
+        l := l.append(Integer(3))
+
+        l.head().Print()
+        l.tail().head().Print()
+    end
+end
