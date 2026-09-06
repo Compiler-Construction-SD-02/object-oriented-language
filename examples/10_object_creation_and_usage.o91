@@ -1,0 +1,18 @@
+class Adder is
+    var sum : Integer(0)
+
+    this(a: Integer, b: Integer) is
+        sum := a.Plus(b)
+    end
+
+    method Sum : Integer => sum
+    method Doubled : Integer => sum.Mult(Integer(2))
+end
+
+class Main is
+    this() is
+        var adder : Adder(Integer(3), Integer(4))
+        adder.Sum().Print()
+        adder.Doubled().Print()
+    end
+end

@@ -1,0 +1,26 @@
+class Parity is
+    method IsOdd(n: Integer) : Boolean
+
+    method IsEven(n: Integer) : Boolean is
+        if n.Equal(Integer(0)) then
+            return true
+        end
+        return IsOdd(n.Minus(Integer(1)))
+    end
+
+    method IsOdd(n: Integer) : Boolean is
+        if n.Equal(Integer(0)) then
+            return false
+        end
+        return IsEven(n.Minus(Integer(1)))
+    end
+end
+
+class Main is
+    this() is
+        var p : Parity()
+        p.IsEven(Integer(4)).toInteger().Print()
+        p.IsOdd(Integer(4)).toInteger().Print()
+        p.IsEven(Integer(7)).toInteger().Print()
+    end
+end

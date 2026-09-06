@@ -1,0 +1,16 @@
+class Animal is
+    method Sound : Integer => Integer(0)
+end
+
+class Dog extends Animal is
+    method Sound : Integer => Integer(1)
+end
+
+class Main is
+    this() is
+        var a : Animal()
+        var d : Dog()
+        a.Sound().Print()
+        d.Sound().Print()
+    end
+end

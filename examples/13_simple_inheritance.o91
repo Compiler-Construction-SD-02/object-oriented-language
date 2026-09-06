@@ -1,0 +1,17 @@
+class Base is
+    var greeting : Integer(1)
+
+    method Greet : Integer => greeting
+end
+
+class Derived extends Base is
+    method DoubleGreet : Integer => Greet().Mult(Integer(2))
+end
+
+class Main is
+    this() is
+        var d : Derived()
+        d.Greet().Print()
+        d.DoubleGreet().Print()
+    end
+end
