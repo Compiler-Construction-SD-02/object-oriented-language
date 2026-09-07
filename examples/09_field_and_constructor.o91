@@ -1,0 +1,17 @@
+class Wallet is
+    var balance : Integer(0)
+
+    this(initial: Integer) is
+        balance := initial
+    end
+
+    method Balance : Integer => balance
+end
+
+class Main is
+    this() is
+        var w : Wallet(Integer(100))
+        w.balance.Print()
+        w.Balance().Print()
+    end
+end

@@ -1,0 +1,14 @@
+class Combiner is
+    method Combine(a: Integer) : Integer => a.Plus(Integer(1))
+    method Combine(a: Real) : Real => a.Plus(Real(2.0))
+    method Combine(a: Integer, b: Integer) : Integer => a.Plus(b)
+end
+
+class Main is
+    this() is
+        var c : Combiner()
+        c.Combine(Integer(5)).Print()
+        c.Combine(Real(5.0)).toInteger().Print()
+        c.Combine(Integer(2), Integer(3)).Print()
+    end
+end

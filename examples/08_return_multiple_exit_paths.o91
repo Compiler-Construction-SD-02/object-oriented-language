@@ -1,0 +1,20 @@
+class Classifier is
+    method Classify(n: Integer) : Integer is
+        if n.Equal(Integer(0)) then
+            return Integer(0)
+        end
+        if n.Less(Integer(0)) then
+            return Integer(2)
+        end
+        return Integer(1)
+    end
+end
+
+class Main is
+    this() is
+        var c : Classifier()
+        c.Classify(Integer(0)).Print()
+        c.Classify(Integer(0).Minus(Integer(5))).Print()
+        c.Classify(Integer(7)).Print()
+    end
+end
