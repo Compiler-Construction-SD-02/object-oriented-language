@@ -1,0 +1,12 @@
+class Const is
+    method GetConst : Integer is
+        return Integer(67)
+    end
+end
+
+class Main is
+    this() is
+        var const : Const()
+        const.GetConst().Print()
+    end
+end

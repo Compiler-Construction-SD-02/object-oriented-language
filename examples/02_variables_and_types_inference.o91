@@ -1,0 +1,14 @@
+class Variables is
+    var n : Integer(5)
+    var m : Real(4.7)
+    var flag : Boolean(true)
+end
+
+class Main is
+    this() is
+        var v : Variables()
+        v.n.Print()
+        v.m.Print()
+        v.flag.Print()
+    end
+end

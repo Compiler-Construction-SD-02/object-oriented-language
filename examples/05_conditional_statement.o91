@@ -1,0 +1,21 @@
+class Main is
+    this() is
+        var a : Integer(5)
+        var b : Integer(4)
+
+        if a.Less(b) then
+            a.Print()
+        else
+            b.Print()
+        
+        if a.Less(b) then
+            a.Print()
+        else
+            if a.Equal(Integer(5)) then
+                a.Print()
+            else
+                b.Print()
+            end
+        end
+    end
+end

@@ -1,0 +1,25 @@
+class Main is
+    this() is
+        var a : Integer(50)
+        var b : Integer(4)
+
+        a.Plus(b).Print()
+        a.Minus(b).Print()
+        a.Mult(b).Print()
+        a.Div(b).Print()
+        a.Div(0)
+
+        var c : Integer(10)
+        var d : Real(2.0)
+
+        c.Plus(d).Print()
+        c.Minus(d).Print()
+        c.Mult(d).Print()
+        c.Div(d).Print()
+        c.Div(0.0)
+
+        var f : Boolean(true)
+        f.Plus(c).Print()
+        c.Plus(f).Print()
+    end
+end

@@ -1,0 +1,16 @@
+class Main is
+    this() is
+        var a : Integer(50)
+        var b : Integer(4)
+        var c : Integer(50)
+
+        a.Less(b).Print()
+        a.Greater(b).Print()
+        a.Equal(b).Print()
+        a.Equal(c).Print()
+        (a.Equal(c).And(a.Greater(b))).Print()
+        (a.Equal(c).And(a.Less(b))).Print()
+        (a.Equal(c).Or(a.Less(b))).Print()
+        (a.Equal(c).And(a.Less(b).Not())).Print()
+    end
+end

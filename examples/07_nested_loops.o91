@@ -1,0 +1,13 @@
+class Main is
+    this() is
+        var sum : Integer(0)
+        var i : Integer(0)
+        while i.Less(Integer(3)) loop
+            var j : Integer(0)
+            while j.Less(Integer(2)) loop
+                i.Print()
+                j.Print()
+            end
+        end
+    end
+end
