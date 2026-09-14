@@ -1,0 +1,32 @@
+class Base is
+    method Sound : Integer is
+        return Integer(0)
+    end
+end
+
+class Derived1 extends Base is
+    method Sound : Integer is
+        return Integer(1)
+    end
+end
+
+class Derived2 extends Base is
+    method Sound : Integer is
+        return Integer(2)
+    end
+end
+
+class Speaker is
+    method Announce(b: Base) is
+        b.Sound().Print()
+    end
+end
+
+class Main is
+    this() is
+        var s : Speaker()
+        s.Announce(Base())
+        s.Announce(Derived1())
+        s.Announce(Derived2())
+    end
+end

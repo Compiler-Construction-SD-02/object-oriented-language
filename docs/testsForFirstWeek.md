@@ -54,11 +54,11 @@ Create an `Array[Integer]`, fill it via `set`, read via `get`, use `Length`. Tes
 **18. Working with List**
 Create a `List`, use `append`, `head`, `tail`. Tests: `List[T]`.
 
-**19. Array of user-defined objects with polymorphism**
-An `Array[Base]` actually holding a mix of `Derived1` and `Derived2` objects; a loop calls the overridden method on each. Tests: Array + inheritance + polymorphism combined - the most representative OOP test case.
+**19. Polymorphism through a base-typed parameter**
+A method `Announce(b: Base)` is called three times - with a `Base`, a `Derived1` and a `Derived2` object. Each call must run the overridden `Sound` of the actual argument. Tests: dynamic dispatch across a subtype substitution, the most representative OOP test case. (Originally an `Array[Base]` test; arrays of user-defined classes do not exist in our implementation - see README §7.1.)
 
 **20. Full mini-program**
-Something like: a `Shape` class with an `Area` method, subclasses `Circle` / `Square` / `Rectangle`, each overriding `Area`; the main class creates several shapes and sums their areas in a loop using `Plus`. Tests: everything together - classes, inheritance, polymorphism, loops, arithmetic, arrays.
+A `Shape` class with an `Area` method and subclasses `Square` / `Rectangle`, each overriding `Area`; an `AreaSummer` class accumulates areas through a method taking a `Shape`. One shape is passed through a base-typed variable, the other directly. Tests: everything together - classes, fields, constructors, inheritance, overriding, dynamic dispatch, encapsulation, arithmetic.
 
 **21. Array sorting (e.g. bubble sort)**
 A method that sorts an `Array[Integer]` in place (or returns a sorted copy), using nested `while` loops, `Greater`/`Less` comparisons, and `get`/`set` for element access and swapping. Tests: nested loops + comparisons + array read/write + assignment all working together - a good end-to-end algorithmic test beyond the isolated feature tests above.

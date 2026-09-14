@@ -30,19 +30,27 @@ class Rectangle extends Shape is
     end
 end
 
+class AreaSummer is
+    var total : Integer(0)
+
+    method Add(s: Shape) is
+        total := total.Plus(s.Area())
+    end
+
+    method Total : Integer is
+        return total
+    end
+end
+
 class Main is
     this() is
-        var shapes : ArrayShape(Integer(2))
-        shapes.set(Integer(0), Square(Integer(4)))
-        shapes.set(Integer(1), Rectangle(Integer(3), Integer(5)))
+        var summer : AreaSummer()
+        var s : Shape()
 
-        var total : Integer(0)
-        var i : Integer(0)
-        while i.Less(shapes.Length()) loop
-            total := total.Plus(shapes.get(i).Area())
-            i := i.Plus(Integer(1))
-        end
+        s := Square(Integer(4))
+        summer.Add(s)
+        summer.Add(Rectangle(Integer(3), Integer(5)))
 
-        total.Print()
+        summer.Total().Print()
     end
 end
