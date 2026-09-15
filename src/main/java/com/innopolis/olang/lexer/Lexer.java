@@ -105,7 +105,7 @@ public final class Lexer {
     }
 
     /**
-     * Читает слово из букв, цифр и подчёркиваний.
+     * Читает слово из букв, цифр и подчёркиваний
      * Дальше смотрит по таблице, ключевое оно или обычный идентификатор.
      */
     private Token readWordOrKeyword(int startLine, int startColumn) {
@@ -172,7 +172,7 @@ public final class Lexer {
         return index < source.length() ? source.charAt(index) : EOF_CHAR;
     }
 
-    /** Съедает текущий символ и возвращает его, сдвигая счётчики. */
+    /** Обрабатывает текущий символ и возвращает его, сдвигая счётчики. */
     private char advance() {
         char c = source.charAt(pos++);
         if (c == '\n') {
@@ -190,7 +190,7 @@ public final class Lexer {
     }
 
     /**
-     * Координаты от запомненного начала до текущего места.
+     * Координаты от запомненного начала до текущего места
      * column уже указывает на символ ПОСЛЕ токена, поэтому минус один.
      */
     private Span spanFrom(int startLine, int startColumn) {
