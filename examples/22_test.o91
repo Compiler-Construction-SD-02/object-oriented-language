@@ -1,0 +1,4 @@
+class Aboba is
+    var x := 10.005.02
+    var z :- x.Plus(x)
+end
