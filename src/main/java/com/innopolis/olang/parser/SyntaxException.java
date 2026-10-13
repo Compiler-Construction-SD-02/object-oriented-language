@@ -4,8 +4,8 @@ import com.innopolis.olang.lexer.Span;
 import lombok.Getter;
 
 /**
- * Токены пришли в порядке, который грамматика не допускает.
- * Несёт координаты токена, на котором парсер споткнулся.
+ * Токены пришли в порядке, который грамматика не допускает
+ * Несёт координаты токена, на котором парсер споткнулся
  */
 @Getter
 public class SyntaxException extends RuntimeException {

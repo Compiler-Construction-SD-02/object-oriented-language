@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * Создание объекта: ClassName Arguments. Например Integer(0) или Speaker().
- *
- * <p>От обычного имени отличается только скобками, поэтому парсер различает
- * их по следующему токену.
  */
 @Getter
 @RequiredArgsConstructor

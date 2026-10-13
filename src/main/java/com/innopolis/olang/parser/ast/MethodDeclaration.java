@@ -10,7 +10,7 @@ import java.util.List;
  * MethodHeader : method Identifier [ Parameters ] [ : ClassName ]
  * MethodBody   : is Body end | => Expression
  *
- * <p>Короткую форму => Expression парсер сразу превращает в тело из одного
+ * Короткую форму => Expression парсер сразу превращает в тело из одного
  * return, потому что смысл у них одинаковый. Дальше по компилятору ходит
  * только одна форма, и обрабатывать два случая больше нигде не надо.
  */

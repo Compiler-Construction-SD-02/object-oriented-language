@@ -8,8 +8,6 @@ import java.util.List;
 
 /**
  * ConstructorDeclaration : this [ Parameters ] is Body end
- *
- * <p>Имени у конструктора нет - он всегда this.
  */
 @Getter
 @RequiredArgsConstructor

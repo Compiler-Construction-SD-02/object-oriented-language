@@ -6,9 +6,6 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * Обращение к полю: Receiver . Identifier без скобок.
- *
- * <p>Грамматика такое допускает, поэтому парсер это разбирает. Разрешено ли
- * оно на самом деле, решает следующий этап: он знает, поле это или метод.
  */
 @Getter
 @RequiredArgsConstructor

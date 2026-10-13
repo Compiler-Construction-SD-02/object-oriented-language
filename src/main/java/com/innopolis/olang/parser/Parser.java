@@ -31,11 +31,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Рекурсивный спуск: на каждую конструкцию языка - один метод разбора.
- * Лексер отдал готовый список токенов, парсер по нему идёт слева направо
- * и собирает дерево. Последний токен всегда EOF, поэтому список не пустой.
+ * Рекурсивный спуск: на каждую конструкцию языка - один метод разбора
+ * Лексер отдает готовый список токенов, парсер по нему идёт слева направо
+ * и собирает дерево. Последний токен всегда EOF, поэтому список не пустой
  *
- * <p>Какую ветку разбора выбрать, всегда видно по текущему токену, а в двух
+ * Какую ветку разбора выбрать, всегда видно по текущему токену, а в двух
  * местах нужен ещё один токен вперёд: присваивание отличается от выражения
  * по := после имени, а создание объекта от обычного имени - по скобке.
  */
@@ -51,7 +51,7 @@ public final class Parser {
         this.tokens = tokens;
     }
 
-    // ---------- объявления ----------
+    // объявления
 
     /** Program : { ClassDeclaration } - точка входа */
     public Program parseProgram() {
@@ -127,11 +127,10 @@ public final class Parser {
             expect(TokenType.END, "'end'");
         } else if (check(TokenType.ARROW)) {
             Token arrow = advance();
-            // Короткая форма => Expression равна телу из одного return,
-            // поэтому сразу приводим её к общему виду.
+            // Короткая форма => Expression равна телу из одного return
             body = List.of(new ReturnStatement(parseExpression(), arrow.getSpan()));
         } else {
-            // Тела нет совсем - метод абстрактный, его реализуют наследники.
+            // Тела нет совсем - метод абстрактный
             body = null;
         }
 
@@ -156,9 +155,7 @@ public final class Parser {
     /**
      * Parameters : ( ParameterDeclaration { , ParameterDeclaration } )
      *
-     * <p>Пустые скобки тоже разрешаем: this() и method Run() пишутся
-     * в наших тестах, и у каждого класса по умолчанию есть конструктор
-     * без параметров.
+     * Пустые скобки тоже разрешены
      */
     private List<ParameterDeclaration> parseParameters() {
         expect(TokenType.LPARENTHESIS, "'('");
@@ -183,12 +180,12 @@ public final class Parser {
         return new ParameterDeclaration(name.getText(), typeName.getText(), name.getSpan());
     }
 
-    // ---------- тело и операторы ----------
+    // тело и операторы
 
     /**
      * Body : { VariableDeclaration | Statement }
      *
-     * <p>Где тело заканчивается, грамматика не говорит - это зависит от того,
+     * Где тело заканчивается, грамматика не говорит - это зависит от того,
      * кто его открыл. Поэтому зовущий передаёт сюда токены, на которых
      * надо остановиться: end, а для ветки then ещё и else.
      */
@@ -216,8 +213,7 @@ public final class Parser {
         if (check(TokenType.RETURN)) {
             return parseReturnStatement();
         }
-        // И присваивание, и выражение начинаются с идентификатора.
-        // Разводит их второй токен: := значит присваивание.
+
         if (check(TokenType.IDENTIFIER) && peek(1).getType() == TokenType.ASSIGN) {
             return parseAssignment();
         }
@@ -262,8 +258,6 @@ public final class Parser {
     /** ReturnStatement : return [ Expression ] */
     private ReturnStatement parseReturnStatement() {
         Token keyword = expect(TokenType.RETURN, "'return'");
-        // Есть ли значение, видно по следующему токену: если с него может
-        // начаться выражение - значит есть, иначе это просто выход.
         Expression value = startsExpression() ? parseExpression() : null;
         return new ReturnStatement(value, keyword.getSpan());
     }
@@ -274,15 +268,10 @@ public final class Parser {
         return new ExpressionStatement(parseExpression(), span);
     }
 
-    // ---------- выражения ----------
+    // выражения
 
     /**
      * Expression : Primary { . Identifier [ Arguments ] }
-     *
-     * <p>Левой рекурсии здесь нет, поэтому и метод простой: сначала разобрали
-     * начало цепочки, потом в цикле навешиваем на него точку за точкой.
-     * Каждый шаг кладёт прежний результат внутрь нового узла, и a.Plus(b).Print()
-     * собирается слева направо - именно в том порядке, в котором считается.
      */
     private Expression parseExpression() {
         Expression expression = parsePrimary();
@@ -325,16 +314,11 @@ public final class Parser {
 
             case IDENTIFIER:
                 advance();
-                // Integer(0) - создание объекта, x - просто имя.
-                // Начало одинаковое, решает скобка сразу после имени.
                 return check(TokenType.LPARENTHESIS)
                         ? new ConstructorInvocation(token.getText(), parseArguments(), token.getSpan())
                         : new NameReference(token.getText(), token.getSpan());
 
             case LPARENTHESIS: {
-                // Выражение в скобках. Своего узла не получает: скобки нужны
-                // только чтобы прочитать запись, а в дереве группировка
-                // и так видна по его форме.
                 advance();
                 Expression inner = parseExpression();
                 expect(TokenType.RPARENTHESIS, "')'");
@@ -364,7 +348,6 @@ public final class Parser {
 
     /**
      * Может ли выражение начаться с текущего токена.
-     * Это список первых токенов всех вариантов Primary.
      */
     private boolean startsExpression() {
         return isAnyOf(TokenType.INT_LITERAL, TokenType.REAL_LITERAL,
@@ -381,7 +364,7 @@ public final class Parser {
         }
     }
 
-    // ---------- вспомогательные методы ----------
+    // вспомогательные методы
 
     /** Текущий токен, не сдвигая позицию */
     private Token peek() {

@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Вызов метода: Receiver . Identifier Arguments. Например a.Plus(b).
  *
- * <p>receiver - это всё, что стоит слева от точки, само выражение. Поэтому
+ * receiver - это всё, что стоит слева от точки, само выражение. Поэтому
  * цепочка a.Plus(b).Mult(c) - это MethodCall(Mult), внутри которого лежит
  * MethodCall(Plus), внутри которого NameReference(a). Дерево растёт влево,
  * как и положено: вычисляется цепочка слева направо.

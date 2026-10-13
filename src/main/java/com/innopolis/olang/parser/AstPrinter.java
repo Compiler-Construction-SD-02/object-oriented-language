@@ -27,10 +27,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Печать дерева отступами.
- *
- * <p>Нужна ровно для одного: посмотреть глазами, что парсер разобрал файл
- * так, как мы думаем. В компиляции не участвует.
+ * Печать дерева отступами
  */
 public final class AstPrinter {
 
@@ -43,10 +40,6 @@ public final class AstPrinter {
         return out.toString();
     }
 
-    /**
-     * Один метод на все виды узлов: switch по типу объекта.
-     * Так короче, чем писать обход отдельно для каждого класса.
-     */
     private void printNode(Object node, int depth) {
         switch (node) {
             case ClassDeclaration declaration -> {

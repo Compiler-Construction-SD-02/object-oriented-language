@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 /**
  * ReturnStatement : return [ Expression ]
  *
- * <p>Без выражения - выход из метода, который ничего не возвращает.
+ * Без выражения - выход из метода, который ничего не возвращает.
  */
 @Getter
 @RequiredArgsConstructor

@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 /**
  * ParameterDeclaration : Identifier : ClassName
  *
- * <p>Здесь после двоеточия стоит именно имя класса, а не выражение -
+ * Здесь после двоеточия стоит именно имя класса, а не выражение -
  * в отличие от объявления переменной.
  */
 @Getter

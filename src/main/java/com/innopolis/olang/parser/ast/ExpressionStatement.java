@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Выражение в роли оператора - наше расширение грамматики.
- *
- * <p>Нужно для строк вида x.Print(): вызов делают ради его действия,
- * а результат никуда не присваивают и выбрасывают.
+ * Выражение в роли оператора
  */
 @Getter
 @RequiredArgsConstructor

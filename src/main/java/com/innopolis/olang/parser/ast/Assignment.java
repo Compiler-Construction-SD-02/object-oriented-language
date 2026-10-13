@@ -6,9 +6,6 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * Assignment : Identifier := Expression
- *
- * <p>Слева стоит только имя, без точек: присвоить можно своей переменной
- * или параметру, но не полю чужого объекта.
  */
 @Getter
 @RequiredArgsConstructor
