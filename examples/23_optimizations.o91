@@ -1,0 +1,23 @@
+class Helper is
+    method Answer : Integer is
+        return Integer(40).Plus(Integer(2))
+        Integer(0).Print()
+    end
+end
+
+class Main is
+    this() is
+        var limit : Integer(2).Plus(Integer(3))
+        var unused : Integer(7)
+
+        if Integer(2).Less(Integer(3)) then
+            limit.Print()
+        else
+            Integer(0).Print()
+        end
+
+        while false loop
+            limit.Print()
+        end
+    end
+end

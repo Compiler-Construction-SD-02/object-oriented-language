@@ -1,0 +1,8 @@
+class Main is
+    this() is
+        var a : Integer(5)
+        if a.Less(Integer(3))
+            a.Print()
+        end
+    end
+end

@@ -184,10 +184,6 @@ public final class Parser {
 
     /**
      * Body : { VariableDeclaration | Statement }
-     *
-     * Где тело заканчивается, грамматика не говорит - это зависит от того,
-     * кто его открыл. Поэтому зовущий передаёт сюда токены, на которых
-     * надо остановиться: end, а для ветки then ещё и else.
      */
     private List<BodyElement> parseBody(TokenType... terminators) {
         List<BodyElement> body = new ArrayList<>();

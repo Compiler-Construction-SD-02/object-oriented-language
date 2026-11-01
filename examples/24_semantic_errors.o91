@@ -1,0 +1,12 @@
+class Main is
+    method Broken(a: Integer) : Integer is
+        var arr : ArrayInteger(Integer(3))
+        arr.set(Integer(5), a)
+        var flag : Boolean(true)
+        flag := a
+        if a then
+            undefined.Print()
+        end
+        a.Foo()
+    end
+end

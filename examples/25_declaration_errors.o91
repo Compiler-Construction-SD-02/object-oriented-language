@@ -1,0 +1,27 @@
+class A extends B is
+end
+
+class B extends A is
+end
+
+class A is
+end
+
+class C extends Missing is
+    this() is
+        return Integer(1)
+    end
+
+    method Same(x: Integer) is
+    end
+
+    method Same(x: Integer) is
+    end
+
+    method Use is
+        var d : D(Integer(1), Integer(2))
+    end
+end
+
+class D is
+end
