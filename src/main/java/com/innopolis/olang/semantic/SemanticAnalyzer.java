@@ -35,12 +35,12 @@ import java.util.stream.Collectors;
 /**
  * Семантический анализатор: проверки, которые дерево не меняют.
  *
- * Работа идёт в четыре прохода, и порядок тут важен:
- * 1) завести символы всех классов - потому что в O класс можно использовать
- *    до его объявления, и пока не известны все имена, ничего проверить нельзя;
- * 2) разрешить родителей и найти циклы в наследовании;
- * 3) завести методы, конструкторы и поля;
- * 4) пройти по телам и всё проверить.
+ * Работа идёт в четыре прохода:
+ * 1) записываем только имена классов. Больше пока ничего и нельзя: чтобы записать родителя, надо,
+ * чтобы родитель уже существовал, а он может быть объявлен ниже по файлу.
+ * 2) теперь все имена есть, можно проставить родителей. Заодно ловим циклы (A extends B, B extends A).
+ * 3) теперь известна иерархия, можно записывать методы и поля.
+ * 4) таблица готова, идём по телам и проверяем.
  *
  * Ошибки не бросаются, а собираются в список.
  */
@@ -264,7 +264,7 @@ public final class SemanticAnalyzer {
                 .orElse(null);
     }
 
-    // ---------- проход 4: тела ----------
+    // проход 4: тела
 
     private void checkBodies(Program program) {
         for (ClassDeclaration declaration : program.getClasses()) {
@@ -434,10 +434,6 @@ public final class SemanticAnalyzer {
         }
     }
 
-    /**
-     * Возвращает ли тело значение на любом пути исполнения.
-     * Цикл не считается: он может не выполниться ни разу.
-     */
     private boolean alwaysReturns(List<BodyElement> body) {
         for (BodyElement element : body) {
             if (element instanceof ReturnStatement) {
@@ -453,7 +449,7 @@ public final class SemanticAnalyzer {
         return false;
     }
 
-    // ---------- типы выражений ----------
+    // типы выражений
 
     private ClassSymbol typeOf(Expression expression) {
         if (expression instanceof IntegerLiteral) {
@@ -611,7 +607,7 @@ public final class SemanticAnalyzer {
         return types.stream().map(ClassSymbol::getName).collect(Collectors.joining(", ", "(", ")"));
     }
 
-    // ---------- проверка границ массива ----------
+    // проверка границ массива
 
     /**
      * Если массив создан с постоянной длиной, а индекс в get/set тоже постоянный,
@@ -665,7 +661,7 @@ public final class SemanticAnalyzer {
         return null;
     }
 
-    // ---------- мелочи ----------
+    // мелочи
 
     private VariableSymbol resolveName(String name, Span span) {
         VariableSymbol variable = scope == null ? null : scope.find(name);
